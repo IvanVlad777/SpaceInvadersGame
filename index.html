@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Space Invaders</title>
+  </head>
+  <body>
+    <div
+      class="modal fade"
+      id="endGameModal"
+      tabindex="-1"
+      aria-labelledby="endGameModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="endGameModalLabel">Game over!</h5>
+            <button
+              type="button"
+              class="btn-close btn-close-white"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body" id="endGameMessage">...</div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="button" class="btn btn-dark" id="newGameModal">
+              New Game
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <header class="text-white">
+      <nav
+        class="navbar navbar-expand-lg bg-grey-900 border-bottom border-primary"
+      >
+        <div class="container-fluid">
+          <a class="navbar-brand text-white" href="#">Space Invaders</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul
+              class="navbar-nav me-auto mb-2 mb-lg-0 d-flex justify-content-evenly w-100"
+            >
+              <li class="nav-item">
+                <a
+                  class="nav-link active text-white"
+                  aria-current="page"
+                  href="#"
+                  id="players_name"
+                  >Hi</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" id="newGame" href="#"
+                  >New Game</a
+                >
+              </li>
+              <li class="d-flex">
+                <input
+                  class="form-control rounded-end"
+                  type="text"
+                  placeholder="Type your nickname"
+                  aria-label="nickname"
+                  id="name_input"
+                />
+                <button
+                  type="button"
+                  class="btn btn-dark rounded-start"
+                  id="confirmName"
+                >
+                  Confirm
+                </button>
+              </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle text-white"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Scoreboard
+                </a>
+                <ul class="dropdown-menu" id="scoreboard_dropdown">
+                  <li class="bg-grey-900">
+                    <a class="dropdown-item text-white" href="#">Empty</a>
+                  </li>
+                  <li class="bg-grey-900">
+                    <a class="dropdown-item text-white" href="#"
+                      >In development</a
+                    >
+                  </li>
+                  <li><hr class="dropdown-divider" /></li>
+                  <li class="bg-grey-900">
+                    <a class="dropdown-item text-white" href="#"
+                      >Not yet in action:)</a
+                    >
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <div class="game_container" id="game_container">
+        <p class="scoreboard"><span>Score:</span> <span id="score">0</span></p>
+        <canvas id="gameCanvas"> </canvas>
+      </div>
+    </main>
+    <footer>
+      <p class="">
+        Images used by Carlos Alface
+        <a href="http://carlosalface.blogspot.pt/"
+          >http://carlosalface.blogspot.pt/</a
+        >
+      </p>
+    </footer>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"
+      integrity="sha512-H6cPm97FAsgIKmlBA4s774vqoN24V5gSQL4yBTDOY2su2DeXZVhQPxFK4P6GPdnZqM9fg1G3cMv5wD7e6cFLZQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./spaceInvaders.js" type="module"></script>
+  </body>
+</html>

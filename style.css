@@ -1,0 +1,36 @@
+body {
+  margin: 0;
+  background-color: black;
+  font-family: sans-serif;
+  color: white;
+  max-height: 100vh;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.game_container {
+  position: relative;
+}
+
+.scoreboard {
+  position: relative;
+  color: white;
+  z-index: 10;
+  left: 10px;
+  top: 20px;
+  margin: 0;
+}
+.dropdown-menu {
+  background-color: #212529;
+}
+.dropdown-menu .dropdown-item:hover {
+  background-color: #373e45;
+}
+.modal-content {
+  background-color: #212529;
+}
