@@ -24,9 +24,15 @@ canvas.height = 576;
 
 let invincibilityMode = true;
 
-const highScoreList = [];
+let highScoreList = [{ name: 'Anonymous', score: 0 }];
 
 const storageKey = 'highscore';
+
+if (localStorage.getItem(storageKey)) {
+  const storage = JSON.parse(localStorage.getItem(storageKey));
+  highScoreList = storage;
+  uploadHighScoreList(highScoreList);
+}
 
 //Classes
 ///////////////////////////////////////////////////////////
@@ -611,23 +617,23 @@ function topTen(highScore) {
 function uploadHighScoreList(highScore) {
   scoreboardDropdownEL.innerHTML = '';
 
-  for (let i = 0; i < highScore.length + 1; i++) {
+  for (let i = 0; i < highScore.length; i++) {
     const html = `<a class="dropdown-item text-white" href="#">${i + 1}. ${
       highScore[i].name
     }: ${highScore[i].score} points</a>`;
     const highScoreElem = document.createElement('li');
     highScoreElem.classList.add('bg-grey-900');
     highScoreElem.innerHTML = html;
-    console.log(highScore[i].name);
     scoreboardDropdownEL.appendChild(highScoreElem);
   }
+  console.log(highScore);
   //check for local storage
   if (window.localStorage === undefined) {
     return;
   }
 
   if (highScore.length > 0) {
-    localStorage.setItem(storageKey, btoa(JSON.stringify(highScore)));
+    localStorage.setItem(storageKey, JSON.stringify(highScore));
 
     return;
   }
