@@ -626,7 +626,6 @@ function uploadHighScoreList(highScore) {
     highScoreElem.innerHTML = html;
     scoreboardDropdownEL.appendChild(highScoreElem);
   }
-  console.log(highScore);
   //check for local storage
   if (window.localStorage === undefined) {
     return;
